@@ -90,11 +90,78 @@ document.addEventListener('keyup', textLeaveKey);
 //4 - Crea un array con 5 palabras. Añade un h2 a tu HTML y ponle un id. Añade dos botones con el texto previus y next respectívamente. Haz que los botones cambien el texto del h2 con las palabras del array, cuando llegues a la última volverás a la primera si pulsas next y cuando estés en la primera podrás volver a la última dandole a previous.
 
 const h2Element = document.getElementById('h2');
-
+const buttonPreviousElement = document.getElementById("buttonPrevious")
+const buttonNextElement = document.getElementById("buttonNext")
 const words = ['behind', 'door', 'open', 'exclusive', 'operation'];
+let button = 0
 
-const changeSubtitle = () => {
-  h2Element.textContent = words[0];
+const changeSubtitlePrevious = () => {
+  button--
+
+    if ( button < 0)
+      {
+        button = words.length - 1
+      }  
+
+      h2Element.textContent = words[button];
+  
+  
 };
 
-h2Element.addEventListener('click', changeSubtitle);
+const changeSubtitleNext = () => {
+  button++
+
+    if ( button >= words.length)
+      {
+        button = 0
+      }
+
+      h2Element.textContent = words[button];    
+};
+
+
+buttonPreviousElement.addEventListener('click', changeSubtitlePrevious);
+buttonNextElement.addEventListener('click', changeSubtitleNext);
+
+
+
+
+
+
+
+
+
+
+/* const h2Element = document.getElementById('h2');
+const buttonPreviusElement = document.getElementById("buttonPrevius")
+const buttonNextElement = document.getElementById("buttonNext")
+const words = ['behind', 'door', 'open', 'exclusive', 'operation'];
+let button = 0
+
+const changeSubtitlePrevius = () => {
+  button--
+
+    if ( button < 0)
+      {
+        button = words.length - 1
+      }  
+
+      h2Element.textContent = words[button];
+  
+  
+};
+
+const changeSubtitleNext = () => {
+  button++
+
+    if ( button >= words.length)
+      {
+        button = 0
+      }
+
+      h2Element.textContent = words[button];    
+};
+
+
+buttonPreviusElement.addEventListener('click', changeSubtitlePrevius);
+buttonNextElement.addEventListener('click', changeSubtitleNext); */
